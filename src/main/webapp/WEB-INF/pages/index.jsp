@@ -123,8 +123,6 @@
 			
         </form>
 
-		<a class="btn btn-link" href="/biblioteca/cliente/cadastrar" role="button">Não tem conta? Faça seu cadastro</a>
-
 	</main>
 
 </body>
