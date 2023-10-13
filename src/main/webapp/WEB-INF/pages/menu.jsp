@@ -105,6 +105,7 @@
 							<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Cadastro</a>
 							<ul class="dropdown-menu">
 								<li><a class="dropdown-item" href="/biblioteca/autor/lista">Autor</a></li>
+								<li><a class="dropdown-item" href="/biblioteca/livro/lista">Livro</a></li>
 							</ul>
 						</li>
 						
