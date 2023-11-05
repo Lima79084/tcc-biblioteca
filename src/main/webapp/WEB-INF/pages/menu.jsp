@@ -102,6 +102,14 @@
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						
 						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Operação</a>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="/biblioteca/emprestimo/novo">Realizar Empréstimo</a></li>
+								<li><a class="dropdown-item" href="/biblioteca/emprestimo/devolver">Devolver Empréstimo</a></li>
+							</ul>
+						</li>
+						
+						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Cadastro</a>
 							<ul class="dropdown-menu">
 								<li><a class="dropdown-item" href="/biblioteca/autor/lista">Autor</a></li>
