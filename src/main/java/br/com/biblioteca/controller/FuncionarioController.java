@@ -52,11 +52,11 @@ public class FuncionarioController {
 		boolean erro = false;
 		if (isCpfCadastrado(funcionario)) {
 			erro = true;
-			erros.add("Já existe um funcionário cadastrado para o CPF informado.");
+			erros.add("Jï¿½ existe um funcionï¿½rio cadastrado para o CPF informado.");
 		}
 		if (isEmailCadastrado(funcionario)) {
 			erro = true;
-			erros.add("Já existe um funcionário cadastrado para o e-mail informado.");
+			erros.add("Jï¿½ existe um funcionï¿½rio cadastrado para o e-mail informado.");
 		}
 
 		if (erro) {
@@ -83,10 +83,10 @@ public class FuncionarioController {
 		Funcionario funcionarioBD = funcionarioService.pesquisarFuncionarioPorCPF(funcionario.getCpf());
 
 		if (funcionarioBD != null) {
-			// cpf já cadastrado
+			// cpf jÃ¡ cadastrado
 
 			if (funcionario.getId() != null) {
-				// edição
+				// ediÃ§Ã£o
 				if (funcionarioBD.getCpf().equals(funcionario.getCpf())) {
 					if (funcionarioBD.getId() == funcionario.getId())
 						return false;
@@ -98,7 +98,7 @@ public class FuncionarioController {
 			return true;
 		} else {
 
-			// cpf não cadastrado
+			// cpf nÃ£o cadastrado
 			return false;
 		}
 
@@ -109,10 +109,10 @@ public class FuncionarioController {
 		Funcionario funcionarioBD = funcionarioService.pesquisarFuncionarioPorEmail(funcionario.getEmail());
 
 		if (funcionarioBD != null) {
-			// email já cadastrado
+			// email jÃ¡ cadastrado
 
 			if (funcionario.getId() != null) {
-				// edição
+				// ediÃ§Ã£o
 				if (funcionarioBD.getEmail().equals(funcionario.getEmail())) {
 					if (funcionarioBD.getId() == funcionario.getId())
 						return false;
@@ -124,7 +124,7 @@ public class FuncionarioController {
 			return true;
 		} else {
 
-			// email não cadastrado
+			// email nÃ£o cadastrado
 			return false;
 		}
 
@@ -189,4 +189,5 @@ public class FuncionarioController {
 
 		return model;
 	}
+
 }

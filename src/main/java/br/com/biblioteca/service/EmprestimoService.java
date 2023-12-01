@@ -1,6 +1,5 @@
 package br.com.biblioteca.service;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 import br.com.biblioteca.model.Emprestimo;
@@ -22,7 +21,5 @@ public interface EmprestimoService {
 	public void renovar(Long idEmprestimo);
 
 	public void devolver(Long idEmprestimo);
-
-	public List<Emprestimo> pesquisarEmprestimoPorIntervaloDatas(LocalDateTime dataInicio, LocalDateTime dataFim);
 
 }

@@ -25,5 +25,5 @@ public interface FuncionarioService {
 	public Funcionario pesquisarFuncionarioPorEmail(String email);
 
 	public Funcionario pesquisarFuncionarioPorCPF(String cpf);
-
+	
 }

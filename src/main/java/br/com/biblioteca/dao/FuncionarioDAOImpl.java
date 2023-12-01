@@ -3,7 +3,6 @@ package br.com.biblioteca.dao;
 import java.util.List;
 
 import org.hibernate.Criteria;
-import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -70,7 +69,7 @@ public class FuncionarioDAOImpl implements FuncionarioDAO {
 
 		return (Funcionario) criteria.uniqueResult();
 	}
-	
+
 	@Override
 	public Funcionario pesquisarFuncionarioPorLogin(String login) {
 		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Funcionario.class);
@@ -92,7 +91,16 @@ public class FuncionarioDAOImpl implements FuncionarioDAO {
 		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Funcionario.class);
 		criteria.add(Restrictions.eq("email", email));
 
-		return(Funcionario) criteria.uniqueResult();
+		return (Funcionario) criteria.uniqueResult();
+	}
+
+	@Override
+	public Funcionario pesquisarUsuarioPorLoginSenha(String login, String senha) {
+		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Funcionario.class);
+		criteria.add(Restrictions.eq("login", login));
+		criteria.add(Restrictions.eq("senha", senha));
+
+		return (Funcionario) criteria.uniqueResult();
 	}
 
 }

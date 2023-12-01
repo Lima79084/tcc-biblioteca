@@ -1,9 +1,9 @@
 package br.com.biblioteca.service;
 
-import br.com.biblioteca.model.Usuario;
+import br.com.biblioteca.model.Funcionario;
 
 public interface LoginService {
 
-	public Usuario realizarLogin(String login, String senha);
+	public Funcionario realizarLogin(String login, String senha);
 
 }

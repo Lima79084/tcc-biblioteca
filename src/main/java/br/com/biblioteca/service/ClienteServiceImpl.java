@@ -8,7 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import br.com.biblioteca.dao.ClienteDAO;
 import br.com.biblioteca.model.Cliente;
-import br.com.biblioteca.utils.SenhaUtils;
 
 @Service
 public class ClienteServiceImpl implements ClienteService {
@@ -19,51 +18,7 @@ public class ClienteServiceImpl implements ClienteService {
 	@Override
 	@Transactional
 	public void salvar(Cliente cliente) {
-
-		if (cliente.getId() != null) {
-			// atualizar
-			Cliente clienteBD = pesquisarClientePorId(cliente.getId());
-			cliente.setSenha(clienteBD.getSenha());
-			this.clienteDAO.salvar(cliente);
-		} else {
-			// inserir
-			String senhaMD5 = SenhaUtils.convertStringToMd5(cliente.getSenha());
-			cliente.setSenha(senhaMD5);
-			this.clienteDAO.salvar(cliente);
-		}
-	}
-
-	@Override
-	@Transactional
-	public void salvarExterno(Cliente cliente) {
-
-		// inserir
-		if(cliente.getSenha() != null && !cliente.getSenha().isEmpty()) {
-			String senhaMD5 = SenhaUtils.convertStringToMd5(cliente.getSenha());
-			cliente.setSenha(senhaMD5);
-		}
-
 		this.clienteDAO.salvar(cliente);
-	}
-
-	@Override
-	@Transactional
-	public void salvarContinuarCadastro(Cliente cliente) {
-		Cliente clienteBD = clienteDAO.pesquisarClientePorId(cliente.getId());
-		clienteBD.setTelefone(cliente.getTelefone());
-		clienteBD.setCpf(cliente.getCpf());
-		this.clienteDAO.salvar(clienteBD);
-	}
-
-	@Override
-	@Transactional
-	public void atualizarDados(Cliente cliente) {
-
-		Cliente clienteBD = pesquisarClientePorId(cliente.getId());
-		cliente.setSenha(clienteBD.getSenha());
-
-		this.clienteDAO.salvar(cliente);
-
 	}
 
 	@Override
@@ -86,37 +41,14 @@ public class ClienteServiceImpl implements ClienteService {
 
 	@Override
 	@Transactional
-	public Cliente pesquisarClientePorLoginSenha(String login, String senha) {
-		String senhaMD5 = SenhaUtils.convertStringToMd5(senha);
-		return clienteDAO.pesquisarClientePorLoginSenha(login, senhaMD5);
-	}
-
-	@Override
-	@Transactional
 	public Cliente pesquisarClientePorCPF(String cpf) {
 		return clienteDAO.pesquisarClientePorCPF(cpf);
 	}
 
-	
-	@Override
-	@Transactional
-	public Cliente pesquisarClientePorLogin(String login) {
-		return clienteDAO.pesquisarClientePorLogin(login);
-	}
-	
 	@Override
 	@Transactional
 	public Cliente pesquisarClientePorEmail(String email) {
 		return clienteDAO.pesquisarClientePorEmail(email);
-	}
-	
-	@Override
-	@Transactional
-	public void alterarSenha(Long idCliente, String senha) {
-		Cliente cliente = pesquisarClientePorId(idCliente);
-		cliente.setSenha(SenhaUtils.convertStringToMd5(senha));
-		this.clienteDAO.salvar(cliente);
-
 	}
 
 }

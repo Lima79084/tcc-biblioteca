@@ -14,6 +14,12 @@ public class Funcionario extends Usuario {
 	@Column(name = "cargo")
 	private String cargo;
 
+	@Column(name = "login")
+	private String login;
+
+	@Column(name = "senha")
+	private String senha;
+
 	public String getTurno() {
 		return turno;
 	}
@@ -28,6 +34,22 @@ public class Funcionario extends Usuario {
 
 	public void setCargo(String cargo) {
 		this.cargo = cargo;
+	}
+
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
 }

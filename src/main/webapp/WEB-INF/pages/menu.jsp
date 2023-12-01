@@ -106,6 +106,7 @@
 							<ul class="dropdown-menu">
 								<li><a class="dropdown-item" href="/biblioteca/emprestimo/novo">Realizar Empréstimo</a></li>
 								<li><a class="dropdown-item" href="/biblioteca/emprestimo/devolver">Devolver Empréstimo</a></li>
+								<li><a class="dropdown-item" href="/biblioteca/emprestimo/lista">Empréstimo Realizados</a></li>
 							</ul>
 						</li>
 						
@@ -134,7 +135,7 @@
 					</ul>
 					
 					<c:if test="${usuarioLogado != null}">
-						<font style="color: #fff;">Seja bem-vindo, <a href="/biblioteca/meus-dados?id=${usuarioLogado.id}">${usuarioLogado.nome}</a></font>
+						<font style="color: #fff;">Seja bem-vindo, ${usuarioLogado.nome}</font>
 					</c:if>
 					
 				</div>

@@ -1,5 +1,6 @@
 package br.com.biblioteca.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,6 +36,14 @@ public class EmprestimoController {
 	public EmprestimoController() {
 	}
 
+	@RequestMapping(value = "/lista")
+	public ModelAndView listar(ModelAndView model) throws IOException {
+		List<Emprestimo> lista = emprestimoService.pesquisarEmprestimos();
+		model.addObject("lista", lista);
+		model.setViewName("emprestimo-lista");
+		return model;
+	}
+	
 	@RequestMapping(value = "/novo", method = RequestMethod.GET)
 	public ModelAndView novo(ModelAndView model) {
 		List<Cliente> clientes = clienteService.pesquisarClientes();

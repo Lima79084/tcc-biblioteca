@@ -103,10 +103,4 @@ public class EmprestimoServiceImpl implements EmprestimoService {
 		return emprestimoDAO.pesquisarEmprestimosAtivos();
 	}
 
-	@Override
-	@Transactional
-	public List<Emprestimo> pesquisarEmprestimoPorIntervaloDatas(LocalDateTime dataInicio, LocalDateTime dataFim) {
-		return emprestimoDAO.pesquisarEmprestimoPorIntervaloDatas(dataInicio, dataFim);
-	}
-
 }

@@ -149,14 +149,21 @@
 											
 											<div class="row mb-4">
 												
-												<div class="col-md-3">
+												<div class="col-md-6">
+													<div class="form-outline">
+														<label class="form-label" for="email">E-mail</label>
+														<input type="email" class="form-control" id="email" name="email" value="${cliente.email}" required="required"/>
+													</div>
+												</div>
+													
+												<div class="col-md-2">
 													<div class="form-outline">
 														<label class="form-label" for="matricula">Matrícula</label>
 														<input type="text" class="form-control" id="matricula" name="matricula" value="${cliente.matricula}" required="required"/>
 													</div>
 												</div>
 												
-												<div class="col-md-3">
+												<div class="col-md-2">
 													<div class="form-outline">
 														<label class="form-label" for="cpf">CPF</label>
 														<input type="text" class="form-control" id="cpf" name="cpf" value="${cliente.cpf}" required="required" 
@@ -164,7 +171,7 @@
 													</div>
 												</div>
 												
-												<div class="col-md-3">
+												<div class="col-md-2">
 													<div class="form-outline">
 														<label class="form-label" for="telefone">Telefone</label>
 														<input type="text" class="form-control" id="telefone" name="telefone" value="${cliente.telefone}" required="required" />
@@ -172,32 +179,7 @@
 												</div>
 												
 											</div>
-											
-											
 												
-												<hr>
-												<h4>Dados de login</h4>
-												
-												<div class="row mb-4">
-													
-													<div class="col-md-9">
-														<div class="form-outline">
-															<label class="form-label" for="email">E-mail</label>
-															<input type="email" class="form-control" id="email" name="email" value="${cliente.email}" required="required"/>
-														</div>
-													</div>
-													
-													<c:if test="${cliente.id == null}">
-														<div class="col-md-3">
-															<div class="form-outline">
-																<label class="form-label" for="senha">Senha</label>
-																<input type="password" class="form-control" id="senha" name="senha" required="required"/>
-															</div>
-														</div>
-													</c:if>
-													
-												</div>
-																							
 										</div>
 
 									</div>

@@ -10,42 +10,34 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import br.com.biblioteca.model.Cliente;
 import br.com.biblioteca.model.Funcionario;
-import br.com.biblioteca.model.Usuario;
-import br.com.biblioteca.service.UsuarioService;
+import br.com.biblioteca.service.FuncionarioService;
 
 @Controller
 public class HomeController {
 
 	@Autowired
-	private UsuarioService usuarioService;
-	
+	private FuncionarioService funcionarioService;
+
 	@RequestMapping(value = "/")
 	public ModelAndView home(ModelAndView model) throws IOException {
 		model.setViewName("index");
 		return model;
 	}
-	
+
 	@RequestMapping(value = "/meus-dados", method = RequestMethod.GET)
 	public ModelAndView meusDados(HttpServletRequest request) {
-		
+
 		Long id = Long.parseLong(request.getParameter("id"));
-		
-		Usuario usuarioLogado = usuarioService.pesquisarUsuarioPorId(id);
-		
+
+		Funcionario funcionarioLogado = funcionarioService.pesquisarFuncionarioPorId(id);
+
 		ModelAndView model = new ModelAndView();
-		
-		if (usuarioLogado instanceof Cliente) {
-			Cliente cliente = (Cliente) usuarioLogado;
-			model.addObject("cliente", cliente);
-			model.setViewName("cliente-dados-pessoais-form");
-		} else {
-			Funcionario funcionario = (Funcionario) usuarioLogado;
-			model.addObject("funcionario", funcionario);
-			model.setViewName("funcionario-dados-pessoais-form");
-		}
-		
+
+		Funcionario funcionario = (Funcionario) funcionarioLogado;
+		model.addObject("funcionario", funcionario);
+		model.setViewName("funcionario-dados-pessoais-form");
+
 		return model;
 	}
 }

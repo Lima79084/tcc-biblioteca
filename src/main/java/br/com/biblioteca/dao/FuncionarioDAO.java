@@ -21,5 +21,7 @@ public interface FuncionarioDAO {
 	public Funcionario pesquisarFuncionarioPorEmail(String email);
 
 	public Funcionario pesquisarFuncionarioPorCPF(String cpf);
+	
+	public Funcionario pesquisarUsuarioPorLoginSenha(String login, String senha);
 
 }

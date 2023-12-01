@@ -10,7 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import br.com.biblioteca.model.Usuario;
+import br.com.biblioteca.model.Funcionario;
 import br.com.biblioteca.service.LoginService;
 
 @Controller
@@ -20,23 +20,24 @@ public class LoginController {
 	private LoginService loginService;
 
 	@RequestMapping(value = "login")
-	public ModelAndView login(Usuario usuario, HttpSession session) throws IOException, GeneralSecurityException {
+	public ModelAndView login(Funcionario funcionario, HttpSession session)
+			throws IOException, GeneralSecurityException {
 
-		Usuario usuarioLogado = loginService.realizarLogin(usuario.getEmail(), usuario.getSenha());
+		Funcionario usuarioLogado = loginService.realizarLogin(funcionario.getLogin(), funcionario.getSenha());
 
 		ModelAndView model = new ModelAndView();
 
 		if (usuarioLogado != null) {
-			// usu·rio logado
+			// usu√°rio logado
 			session.setAttribute("usuarioLogado", usuarioLogado);
 			session.setAttribute("idUsuarioLogado", usuarioLogado.getId());
-			
+
 			model.addObject("sucesso", Boolean.TRUE);
 			model.setViewName("principal");
 			return model;
 		}
-		
-		// usu·rio n„o logado
+
+		// usu√°rio n√£o logado
 		model.addObject("sucesso", Boolean.FALSE);
 		model.setViewName("index");
 		return model;

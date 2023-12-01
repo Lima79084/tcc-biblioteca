@@ -14,20 +14,8 @@ public interface ClienteService {
 
 	public Cliente pesquisarClientePorId(Long idCliente);
 
-	public Cliente pesquisarClientePorLoginSenha(String login, String senha);
-	
-	public void alterarSenha(Long idCliente, String senha);
-
-	public void atualizarDados(Cliente cliente);
-
-	public void salvarExterno(Cliente cliente);
-
-	public Cliente pesquisarClientePorLogin(String login);
-	
 	public Cliente pesquisarClientePorEmail(String email);
 	
-	public void salvarContinuarCadastro(Cliente cliente);
-
 	public Cliente pesquisarClientePorCPF(String cpf);
 	
 }

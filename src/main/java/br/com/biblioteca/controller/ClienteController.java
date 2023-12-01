@@ -52,11 +52,11 @@ public class ClienteController {
 		boolean erro = false;
 		if (isCpfCadastrado(cliente)) {
 			erro = true;
-			erros.add("J· existe um cliente cadastrado para o CPF informado.");
+			erros.add("J√° existe um cliente cadastrado para o CPF informado.");
 		}
 		if (isEmailCadastrado(cliente)) {
 			erro = true;
-			erros.add("J· existe um cliente cadastrado para o e-mail informado.");
+			erros.add("J√° existe um cliente cadastrado para o e-mail informado.");
 		}
 
 		if (erro) {
@@ -82,10 +82,10 @@ public class ClienteController {
 		Cliente clienteBD = clienteService.pesquisarClientePorCPF(cliente.getCpf());
 
 		if (clienteBD != null) {
-			// cpf j· cadastrado
+			// cpf j√° cadastrado
 
 			if (cliente.getId() != null) {
-				// ediÁ„o
+				// edi√ß√£o
 				if (clienteBD.getCpf().equals(cliente.getCpf())) {
 					if (clienteBD.getId() == cliente.getId())
 						return false;
@@ -97,7 +97,7 @@ public class ClienteController {
 			return true;
 		} else {
 
-			// cpf n„o cadastrado
+			// cpf n√£o cadastrado
 			return false;
 		}
 
@@ -108,10 +108,10 @@ public class ClienteController {
 		Cliente clienteBD = clienteService.pesquisarClientePorEmail(cliente.getEmail());
 
 		if (clienteBD != null) {
-			// email j· cadastrado
+			// email j√° cadastrado
 
 			if (cliente.getId() != null) {
-				// ediÁ„o
+				// edi√ß√£o
 				if (clienteBD.getEmail().equals(cliente.getEmail())) {
 					if (clienteBD.getId() == cliente.getId())
 						return false;
@@ -123,21 +123,10 @@ public class ClienteController {
 			return true;
 		} else {
 
-			// email n„o cadastrado
+			// email n√£o cadastrado
 			return false;
 		}
 
-	}
-
-	@RequestMapping(value = "/atualizar-dados", method = RequestMethod.POST)
-	public ModelAndView atualizar(@ModelAttribute Cliente cliente) {
-		clienteService.atualizarDados(cliente);
-
-		ModelAndView model = new ModelAndView();
-		model.addObject("sucesso", Boolean.TRUE);
-		model.setViewName("cliente-dados-pessoais-form");
-
-		return model;
 	}
 
 	@RequestMapping(value = "/deletar", method = RequestMethod.GET)
@@ -163,29 +152,6 @@ public class ClienteController {
 		ModelAndView model = new ModelAndView("cliente-form");
 		model.addObject("cliente", cliente);
 
-		return model;
-	}
-
-	@RequestMapping(value = "/editar-senha", method = RequestMethod.GET)
-	public ModelAndView editarSenha(HttpServletRequest request) {
-		Long id = Long.parseLong(request.getParameter("id"));
-		Cliente cliente = clienteService.pesquisarClientePorId(id);
-
-		ModelAndView model = new ModelAndView("cliente-form-senha");
-		model.addObject("cliente", cliente);
-
-		return model;
-	}
-
-	@RequestMapping(value = "/salvar-senha", method = RequestMethod.POST)
-	public ModelAndView salvarSenha(@ModelAttribute Cliente cliente) {
-		clienteService.alterarSenha(cliente.getId(), cliente.getSenha());
-		List<Cliente> listCliente = clienteService.pesquisarClientes();
-
-		ModelAndView model = new ModelAndView();
-		model.addObject("listCliente", listCliente);
-		model.addObject("sucesso", Boolean.TRUE);
-		model.setViewName("cliente-lista");
 		return model;
 	}
 

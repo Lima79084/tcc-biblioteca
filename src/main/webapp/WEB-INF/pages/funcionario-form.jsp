@@ -139,10 +139,17 @@
 
 											<div class="row mb-4">
 											
-												<div class="col-md-12">
+												<div class="col-md-7">
 													<div class="form-outline">
 														<label class="form-label" for="nome">Nome</label>
 														<input type="text" class="form-control" id="nome" name="nome" value="${funcionario.nome}" required="required"  />
+													</div>
+												</div>
+												
+												<div class="col-md-5">
+													<div class="form-outline">
+														<label class="form-label" for="email">E-mail</label>
+														<input type="email" class="form-control" id="email" name="email" value="${funcionario.email}" required="required"/>
 													</div>
 												</div>
 												
@@ -186,15 +193,15 @@
 													
 													<div class="row mb-4">
 													
-														<div class="col-md-9">
+														<div class="col-md-6">
 															<div class="form-outline">
-																<label class="form-label" for="email">E-mail</label>
-																<input type="email" class="form-control" id="email" name="email" value="${funcionario.email}" required="required"/>
+																<label class="form-label" for="login">Login</label>
+																<input type="text" class="form-control" id="login" name="login" value="${funcionario.login}" required="required"/>
 															</div>
 														</div>
 																	
 														<c:if test="${funcionario.id == null}">									
-															<div class="col-md-3">
+															<div class="col-md-6">
 																<div class="form-outline">
 																	<label class="form-label" for="senha">Senha</label>
 																	<input type="password" class="form-control" id="senha" name="senha" required="required"/>

@@ -14,6 +14,4 @@ public interface AutorService {
 
 	public Autor pesquisarAutorPorId(Long idAutor);
 	
-	public String gerarMatricula();
-	
 }
